@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+<h1>Hello!</h1>
+<p>Click
+    <button hx-get="/apple" hx-target="#apple">here</button>
+    to get an apple.
+</p>
+<p id="apple"></p>
+</body>
+</html>
