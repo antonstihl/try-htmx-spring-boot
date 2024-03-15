@@ -1,4 +1,4 @@
-package dev.antonstihl.tryhtmx;
+package dev.antonstihl.tryhtmxspringboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
