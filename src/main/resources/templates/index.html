@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:hx-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <h1>Hello!</h1>
-<p>Click
-    <button hx-get="/apple" hx-target="#apple">here</button>
-    to get an apple.
-</p>
-<p id="apple"></p>
+<div class="actions">
+    <p>Click
+        <button hx-get="/random-apple" hx-target="#apple">here</button>
+        to get an apple.
+    </p>
+    <p>Click
+        <button hx-get="/apples" hx-target="#apples">here</button>
+        to get all apples.
+    </p>
+    <form hx-post="/apples" hx-swap="none" hx-on::after-request="this.reset()">
+        <input type="text" maxlength="20" minlength="1" name="name"/>
+        <button>Submit</button>
+    </form>
+</div>
+<p>Here is the current random apple name: <span id="apple"></span></p>
+<div id="apples"></div>
 </body>
 </html>

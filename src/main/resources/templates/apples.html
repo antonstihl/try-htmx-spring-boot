@@ -1,1 +1,3 @@
-<p th:text="${applename}"/>
+<ul>
+    <li th:each="apple : ${apples}" th:text="${apple}">Name</li>
+</ul>
