@@ -2,6 +2,7 @@ package dev.antonstihl.tryhtmxspringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -47,8 +48,9 @@ public class TryHtmxApplication {
         }
 
         @DeleteMapping("/apples/{id}")
-        public void deleteApple(@PathVariable UUID id) {
+        public ResponseEntity<Void> deleteApple(@PathVariable UUID id) {
             appleService.deleteApple(id);
+            return ResponseEntity.noContent().build();
         }
     }
 
@@ -71,8 +73,8 @@ public class TryHtmxApplication {
                 new Apple(UUID.randomUUID(), "Ingrid-Marie")
         ));
 
-        public Apple getRandomAppleName() {
-            return apples.get((int) (Math.random() * apples.size()));
+        public String getRandomAppleName() {
+            return apples.get((int) (Math.random() * apples.size())).name();
         }
 
         public List<Apple> getApples() {
