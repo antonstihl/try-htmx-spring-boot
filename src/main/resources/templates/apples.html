@@ -1,3 +1,7 @@
-<ul>
-    <li th:each="apple : ${apples}" th:text="${apple}">Name</li>
+<ul hx-get="/apples" hx-trigger="every 1s" hx-target="#apples">
+    <li th:each="apple : ${apples}"><span th:text="${apple.name}">Name</span>
+        <button hx-delete="placeholder/to/delete/apple" th:attr="hx-delete=${'apples/' + apple.id}" hx-swap="none">
+            Delete
+        </button>
+    </li>
 </ul>
